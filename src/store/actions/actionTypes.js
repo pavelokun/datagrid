@@ -1,0 +1,12 @@
+export const SORT = 'SORT';
+export const SET_CLICKED = 'SET_CLICKED';
+export const RESET_SORT_TYPE = 'RESET_SORT_TYPE';
+export const ACTIVE_USERS = 'ACTIVE_USERS';
+export const TURBO_MODE = 'TURBO_MODE';
+export const SORT_ENUM = 'SORT_ENUM';
+export const SORTING_ENUM = 'SORTING_ENUM';
+export const SEARCH = 'SEARCH';
+export const SET_ACTIVE = 'SET_ACTIVE';
+export const SET_DELETED = 'SET_DELETED';
+export const DELETE_ROWS = 'DELETE_ROWS';
+export const SET_INVISIBLE = 'SET_INVISIBLE';
