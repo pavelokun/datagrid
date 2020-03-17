@@ -41,7 +41,7 @@ const RowComponentNoVirtual = ({
       className="align-items-center row-item"
       id={id}
     >
-      <Col className="cell fixedCol fixedCol" xs={2} style={isActiveStyle}>
+      <Col className="cell fixedColN" xs={2} style={isActiveStyle}>
         <Checkbox
           id={idx}
           color="primary"

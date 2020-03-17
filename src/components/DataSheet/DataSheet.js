@@ -42,8 +42,32 @@ const dataToProps = (data) => data.map((item, idx) => {
 });
 
 const DataSheet = ({
-  sorting, data, icon1, icon2, invisibleColumns, turboMode,
-}) => (
+  sorting, data, icon1, icon2, invisibleColumns, turboMode, sort1, sort2
+}) => {
+  const iconGen = (field) => {
+    if (sort1[0] === field) {
+      switch (sort1[1]) {
+        case 'asc':
+          return faArrowDown;
+        case 'desc':
+          return faArrowUp;
+        default:
+          return faSort;
+      }
+    } else if (sort2[0] === field) {
+      switch (sort2[1]) {
+        case 'asc':
+          return faArrowDown;
+        case 'desc':
+          return faArrowUp;
+        default:
+          return faSort;
+      }
+    } else {
+      return faSort;
+    }
+  }
+  return (
   <Container fluid>
     <Row className="header">
       <Col className="fixedColHeader hCell fixedCol" xs={2}>
@@ -80,7 +104,7 @@ const DataSheet = ({
             field: 'currency',
           })}
         >
-          <FontAwesomeIcon icon={icon1} />
+          <FontAwesomeIcon icon={iconGen('currency')} />
         </Badge>
       </Col>
       <Col className="hCell" xs={1}>
@@ -96,7 +120,7 @@ const DataSheet = ({
             field: 'amount',
           })}
         >
-          <FontAwesomeIcon icon={icon2} />
+          <FontAwesomeIcon icon={iconGen('amount')} />
         </Badge>
       </Col>
       <Col className="hCell" xs={1}>
@@ -123,7 +147,7 @@ const DataSheet = ({
     }
   </Container>
 );
-
+}
 function mapStateToProps(state) {
   return {
     sortType: state.sortType,
@@ -133,6 +157,8 @@ function mapStateToProps(state) {
     icon2: state.icon.amount,
     invisibleColumns: state.invisibleColumns,
     turboMode: state.isTurboModeOn,
+    sort1: state.sort1,
+    sort2: state.sort2,
   };
 }
 
